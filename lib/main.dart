@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_1/pages/home_page.dart';
+import 'package:flutter_test_1/pages/wrappers/home_wrapper.dart';
 import 'package:flutter_test_1/shared/button_counter.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() {
   runApp(const TestApp());
@@ -24,7 +27,10 @@ class TestApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
+        backgroundColor: const Color(0xFF212121),
         primarySwatch: Colors.deepOrange,
+        primaryColor: Colors.deepOrange,
+        dividerColor: Colors.black12,
       ),
       routes: {
         '/': (context) => const HomePage(),
