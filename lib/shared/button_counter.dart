@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_1/services/firestore_service.dart';
 import 'package:flutter_test_1/shared/counter_bottom_nav.dart';
+import 'package:flutter_test_1/shared/counter_display.dart';
 import 'package:flutter_test_1/shared/menu_drawer.dart';
 
 class ButtonCounter extends StatefulWidget {
@@ -23,17 +25,7 @@ class ButtonCounter extends StatefulWidget {
 }
 
 class _ButtonCounterState extends State<ButtonCounter> {
-  int _counter = 0;
-
-  void _incrementCounter(bool increment) {
-    setState(() {
-      if (increment) {
-        _counter++;
-      } else {
-        _counter--;
-      }
-    });
-  }
+  final FirestoreService _firestore = new FirestoreService();
 
   @override
   Widget build(BuildContext context) {
@@ -70,17 +62,16 @@ class _ButtonCounterState extends State<ButtonCounter> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const Text(
-                'You have pushed the button this many times:',
+                'Current Count:',
               ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headline4,
-              ),
+              CounterDisplay(),
             ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => _incrementCounter(widget.increment),
+          onPressed: () async {
+            _firestore.updateGlobalCounter(widget.increment);
+          },
           tooltip: 'Increment',
           child: const Icon(Icons.add),
         ), // This trailing comma makes auto-formatting nicer for build methods.

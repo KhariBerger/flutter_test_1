@@ -4,8 +4,17 @@ import 'package:flutter_test_1/pages/wrappers/home_wrapper.dart';
 import 'package:flutter_test_1/shared/button_counter.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'firebase_options.dart';
 
-void main() {
+//Global Variables
+User? user;
+bool loggedIn = false;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const TestApp());
 }
 
@@ -33,7 +42,7 @@ class TestApp extends StatelessWidget {
         dividerColor: Colors.black12,
       ),
       routes: {
-        '/': (context) => const HomePage(),
+        '/': (context) => const HomeWrapper(),
         '/increment': (context) =>
             const ButtonCounter(title: 'Counter++', increment: true),
         '/decrement': (context) =>
