@@ -39,9 +39,9 @@ class _LoginState extends State<Login> {
                     if (kDebugMode) {
                       print('Successful Login');
                       print('Result: ' + result.toString());
-                      Navigator.of(context).pop();
-                      Navigator.pushNamed(context, '/');
                     }
+                    Navigator.of(context).pop();
+                    Navigator.pushNamed(context, '/');
                   }
                 })));
   }
