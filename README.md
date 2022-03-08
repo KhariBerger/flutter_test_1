@@ -1,6 +1,6 @@
 # flutter_test_1
 
-Testing and learning the Dart/Flutter Language.
+Testing and learning the Dart/Flutter Language in combination with a Google Firebase backend.
 
 ## Getting Started
 
