@@ -1,10 +1,12 @@
 # flutter_test_1
 
-A new Flutter project.
+Testing and learning the Dart/Flutter Language.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project was created using Flutter in 2022.
+
+-----------------------------------------------
 
 A few resources to get you started if this is your first Flutter project:
 
